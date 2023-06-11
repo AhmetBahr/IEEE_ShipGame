@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyObstacle : MonoBehaviour
 {
+    //Knk burasý çok gereksiz olmuþ, düþünce güzel ama C# ile bunu tek kod ile yapabiliyorz. Diðer kod satýrýnda (obstacle) yaptým 
+
     public float sure; // Baþlangýç süresi
     private float gecenSure; // Geçen süreyi tutmak için deðiþken
     private bool zamanDoldu; // Zamanýn dolduðunu kontrol etmek için deðiþken    
