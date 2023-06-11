@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] obstaclePatterns;
+
+    [SerializeField] private GameObject[] obstaclePatterns;
     private float timeBtwSpawn;
-    public float starttimeBtwSpawn;
-    public float decreaseTime; //azaltma zamaný
-    public float minTime = 0.65f;
+    [SerializeField] private float starttimeBtwSpawn;
+    [SerializeField] private float decreaseTime; //azaltma zamaný
+    [SerializeField] private float minTime;
     int rand;
 
     // Start is called before the first frame update
