@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class GameManager : MonoBehaviour
     public float sure=5f; // Baþlangýç süresi
     private float gecenSure; // Geçen süreyi tutmak için deðiþken
     public Score score;
-    public GameObject gameOverPanel;
     void Start()
     {
         gecenSure = sure;
@@ -23,7 +21,6 @@ public class GameManager : MonoBehaviour
         if (Player.GetComponent<Player>().health<=0) //playerin caný o ýn altýna düþtüyse gameover true yap
         {
             gameOver = true;
-            gameOverPanel.SetActive(true);
         }
         if(gameOver==false) //oyun bitmediyse skoru arttýr oyun bittiyse arttýrma
             addScore();
@@ -40,17 +37,5 @@ public class GameManager : MonoBehaviour
         }
         else
             gecenSure -= Time.deltaTime;
-    }
-    public void RestartButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        gameOver = false;
-        Player.GetComponent<Player>().health = 3;
-    } 
-    public void MainMenuButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
-        gameOver= false;
-        Player.GetComponent<Player>().health = 3;
     }
 }
