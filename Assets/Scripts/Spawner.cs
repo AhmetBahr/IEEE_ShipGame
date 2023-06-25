@@ -38,4 +38,10 @@ public class Spawner : MonoBehaviour
         }
         
     }
+
+
+     public void Spawing()
+    {
+
+    }
 }

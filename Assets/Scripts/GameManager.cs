@@ -13,11 +13,15 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private RectTransform DeathMenu; // Ölüm ekranýný burada tanýmlýyoruz 
+    [SerializeField] private RectTransform Menu; // Menu ekranýný burada tanýmlýyoruz 
+    [SerializeField] private RectTransform PlayPanel; // Menu ekranýný burada tanýmlýyoruz 
+
+
 
     void Start()
     {
         gecenSure = sure;
-        
+        gameOver = true;
     }
 
     // Update is called once per frame
@@ -44,6 +48,16 @@ public class GameManager : MonoBehaviour
             gecenSure -= Time.deltaTime;
     }
 
+
+    public void StartGame()
+    {
+        Menu.DOAnchorPos(new Vector2(0, -1350), 0.4f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+        PlayPanel.DOAnchorPos(new Vector2(0, 0), 0.4f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+        gameOver = false;
+
+        Player.SetActive(true);
+
+    }
 
     public void Gameover()
     {
