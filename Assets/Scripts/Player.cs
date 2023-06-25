@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,14 @@ public class Player : MonoBehaviour
     public float yIncrement;    // y yönündeki artýþ
     public float speed;         //y yönündeki artýþ hýzý 
     public int health;          //karakter saðlýðý
+
+    GameManager gameManager;
+
     private void Start()
     {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>(); // oyun içersinden  "GameManager" tagli objeyi bulmak için 
+            //Farklý objeler içersindeki kodlara ulaþmak için kullandýðým bir metot     
+
         health = 3;
     }
     // Update is called once per frame
@@ -19,6 +26,13 @@ public class Player : MonoBehaviour
         if (GameManager.gameOver==false) //oyun bitmediyse karakterin caný 0 olmadýysa
         //playerin pozisyonunu hedef pozisyon yapýyoruz yani karakteri hareket ettirdiðimiz kod
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed* Time.deltaTime); 
+
+        if(health <= 0)
+        {
+            gameObject.SetActive(false); //  oyuncunun caný kalmdýðý zaman görünümü kapat 
+            gameManager.Gameover(); // yukarýda oluþturduðumuz nesne içersindeki fonksiyonu çalýþtýrýyoruz 
+
+        }
 
     }
     /// <summary>

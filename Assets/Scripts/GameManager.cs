@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     public float sure=5f; // Baþlangýç süresi
     private float gecenSure; // Geçen süreyi tutmak için deðiþken
     public Score score;
+
+
+    [SerializeField] private RectTransform DeathMenu; // Ölüm ekranýný burada tanýmlýyoruz 
+
     void Start()
     {
         gecenSure = sure;
@@ -38,4 +43,13 @@ public class GameManager : MonoBehaviour
         else
             gecenSure -= Time.deltaTime;
     }
+
+
+    public void Gameover()
+    {
+
+        DeathMenu.DOAnchorPos(new Vector2(0,0), 0.3f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+
+    }
+
 }
