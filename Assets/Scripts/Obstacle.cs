@@ -12,10 +12,15 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] private GameObject point;
     private float zAngle;
+   // public AudioSource soundSource;
+   // public AudioClip clip;
 
     private void Start()
     {
+        
         Destroy(gameObject,10); // nesneyi 10 saniye sonra yok etmek için
+        //soundSource = GetComponent<AudioSource>();
+        //soundSource.clip=clip;
     }
     // Start is called before the first frame update
     private void Update()
@@ -24,14 +29,16 @@ public class Obstacle : MonoBehaviour
             transform.Translate(Vector2.left * speed * Time.deltaTime); // engelin sola doðru gitmesi
 
         //Aþaðýdaki kodu çalýþtýrmak için 
-        turnAround();   
+        turnAround();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            //soundSource.Play(); // normalde burda çarpýþma sesini vermesi lazýmdý çalýþmýyor.
             collision.GetComponent<Player>().health -= damage; //oyuncunun caný damage ile azalýr
-            Debug.Log(collision.GetComponent<Player>().health);
+            Debug.Log(collision.GetComponent<Player>().health);           
             Destroy(gameObject); //engel yok edilir
         }
     }

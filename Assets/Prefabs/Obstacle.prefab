@@ -131,7 +131,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048889378625133235}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9839122, w: -0.17865251}
   m_LocalPosition: {x: 5.13, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
@@ -155,6 +155,8 @@ MonoBehaviour:
   damage: 1
   speed: 5
   point: {fileID: 114913882081021921}
+  soundSource: {fileID: 203713916734083573, guid: 67694352e5020ef428259da2b2234b75, type: 3}
+  clip: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
 --- !u!61 &8657948322681238760
 BoxCollider2D:
   m_ObjectHideFlags: 0
