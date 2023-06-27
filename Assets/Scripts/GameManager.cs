@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public float sure=5f; // Baþlangýç süresi
     private float gecenSure; // Geçen süreyi tutmak için deðiþken
     public Score score;
+    public GameObject btnopen, btnclose; // ses açma kapama butonlarý
+    bool soundactive;     // sesin açýk olup olmadýðýný kontrol etme
+    public AudioSource soundcontrol;
 
 
     [SerializeField] private RectTransform DeathMenu; // Ölüm ekranýný burada tanýmlýyoruz 
@@ -23,6 +27,8 @@ public class GameManager : MonoBehaviour
     {
         gecenSure = sure;
         gameOver = true;
+        soundcontrol.GetComponent<AudioSource>();
+        soundactive = true;
     }
 
     // Update is called once per frame
@@ -74,10 +80,32 @@ public class GameManager : MonoBehaviour
          Player.SetActive(true);
          DeathMenu.DOAnchorPos(new Vector2(0, -1350), 0.3f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
          score.ScoreRestart(); // score ý sýfýrlama */
-         Application.LoadLevel(0);
-         StartGame();
-         Player.GetComponent<Player>().health = 3;
-
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // sahneyi baþtan baþlatmak menüye döner.
+        gameOver=false;
+        Player.GetComponent<Player>().health = 3;
+    }
+    public void SoundClick()
+    {
+        if (soundactive==true)  //ses kapama
+        {
+            btnopen.SetActive(false);  //ses açýk butonunu kapat
+            btnclose.SetActive(true); //ses kapalý butonunu aç
+            soundactive=false;
+            soundcontrol.mute = true;
+            //PlayerPrefs.SetInt("soundSituation", 0);
+        }
+        else  //ses açma
+        {
+            btnopen.SetActive(true); //ses açýk butonunu aç
+            btnclose.SetActive(false); //ses kapalý butonunu kapat
+            soundactive=true;
+            soundcontrol.mute = false;
+            //PlayerPrefs.SetInt("soundSituation", 1);
+        }
+            
     }
 
 }
