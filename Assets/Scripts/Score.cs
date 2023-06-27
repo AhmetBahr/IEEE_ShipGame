@@ -38,4 +38,8 @@ public class Score : MonoBehaviour
             PlayerPrefs.SetInt("highscore", highscore);
         } 
     }
+    public void ScoreRestart() // oyunu restart yaptýðýmýzda score ý sýfýrlamak için
+    {
+        score=0;
+    }
 }

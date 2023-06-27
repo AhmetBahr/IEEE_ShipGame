@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -63,6 +64,19 @@ public class GameManager : MonoBehaviour
     {
 
         DeathMenu.DOAnchorPos(new Vector2(0,0), 0.3f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+
+    }
+    public void Restart()
+    {
+        /* PlayPanel.DOAnchorPos(new Vector2(0, 0), 0.4f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+         gameOver=false;
+         Player.GetComponent<Player>().health = 3;
+         Player.SetActive(true);
+         DeathMenu.DOAnchorPos(new Vector2(0, -1350), 0.3f);  //Tweeen ile menüyü bir öbje gibi hareket ettiriyoruz.
+         score.ScoreRestart(); // score ý sýfýrlama */
+         Application.LoadLevel(0);
+         StartGame();
+         Player.GetComponent<Player>().health = 3;
 
     }
 
