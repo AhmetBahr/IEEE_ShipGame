@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // sahneyi baþtan baþlatmak menüye döner.
         gameOver=false;
         gameOverAudio = false;
-        Player.GetComponent<Player>().health = 3;
+        Player.GetComponent<Player>().health = 4;
     }
     public void SoundClick()  //ses açma kapama tuþlarýna onClick() metoduyla baðlý
     {

@@ -38,7 +38,9 @@ public class Obstacle : MonoBehaviour
         {
             //soundSource.Play(); // normalde burda çarpýþma sesini vermesi lazýmdý çalýþmýyor.
             collision.GetComponent<Player>().health -= damage; //oyuncunun caný damage ile azalýr
-            Debug.Log(collision.GetComponent<Player>().health);           
+            Debug.Log(collision.GetComponent<Player>().health);
+            Camera.main.DOShakePosition(1,1,fadeOut:true);
+            Camera.main.DOShakeRotation(1, 1, fadeOut: true);
             Destroy(gameObject); //engel yok edilir
         }
     }

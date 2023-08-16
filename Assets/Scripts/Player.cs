@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>(); // oyun içersinden  "GameManager" tagli objeyi bulmak için 
             //Farklý objeler içersindeki kodlara ulaþmak için kullandýðým bir metot     
 
-        health = 3;
+        health = 4;
     }
     // Update is called once per frame
     void Update()
